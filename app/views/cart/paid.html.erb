@@ -17,8 +17,8 @@
             <div class = "orderitem">
                 <% item = Orderitem.find_by_id(id) %>
                 <div class ="image-title">
-                    <div class = "image"><%= link_to image_tag(Item.find_by_id(id).image_url, class: "image-thumbnail"), Item.find_by_id(id) %></div>
-                    <div class = "title"><%= link_to item.title, Item.find_by_id(id) %></div>
+                    <div class = "image"><%= link_to image_tag(Item.find_by_id(item.item_id).image_url, class: "image-thumbnail"), Item.find_by_id(id) %></div>
+                    <div class = "title"><%= link_to item.title, Item.find_by_id(item.item_id) %></div>
                 </div>
                 <div class = "quantity"><%= item.quantity %></div>
                 <div class = "amount"><%= number_to_currency(item.quantity * item.price, :unit => "€") %></div>
