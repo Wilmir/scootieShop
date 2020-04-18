@@ -18,15 +18,18 @@
         <p>Price <%= number_to_currency(item.price, :unit => "€") %></p>
         <p>In Stock: <%= item.stock %></p>
       </div>
-  
-      <div class="card-btns"> 
+      <div class="card-btns">
+      <% if item.stock > 0 %> 
         <a href="/cart/<%= item.id %>" class="btn">Add To Cart</a>
-        <%= link_to 'Show', item, {:class => "btn"} %>
-        <% if session[:login] == 1 %>   
-          <%= link_to 'Edit', edit_item_path(item), {:class => "btn"} %>
-          <%= link_to 'Destroy', item, method: :delete, :class => "btn", data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
+      <% end %>      
+      
+      <%= link_to 'Show', item, {:class => "btn"} %>
+      
+      <% if session[:login] == 1 %>   
+        <%= link_to 'Edit', edit_item_path(item), {:class => "btn"} %>
+        <%= link_to 'Destroy', item, method: :delete, :class => "btn", data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
     </div>
   <% end %>
 <% elsif @itemsTitle.length > 0 %>
@@ -43,14 +46,18 @@
         <p>In Stock: <%= item.stock %></p>
       </div>
   
-      <div class="card-btns"> 
+      <div class="card-btns">
+      <% if item.stock > 0 %> 
         <a href="/cart/<%= item.id %>" class="btn">Add To Cart</a>
-        <%= link_to 'Show', item, {:class => "btn"} %>
-        <% if session[:login] == 1 %>   
-          <%= link_to 'Edit', edit_item_path(item), {:class => "btn"} %>
-          <%= link_to 'Destroy', item, method: :delete, :class => "btn", data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
+      <% end %>      
+      
+      <%= link_to 'Show', item, {:class => "btn"} %>
+      
+      <% if session[:login] == 1 %>   
+        <%= link_to 'Edit', edit_item_path(item), {:class => "btn"} %>
+        <%= link_to 'Destroy', item, method: :delete, :class => "btn", data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
     </div>
   <% end %>
 <% end %>
